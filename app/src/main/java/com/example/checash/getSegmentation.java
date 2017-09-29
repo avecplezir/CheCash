@@ -97,43 +97,17 @@ public class getSegmentation extends AppCompatActivity {
                     @Override
                     public void run() {
                         out = new String(output);
-//                        outputView.setText(out);
-                        Gson g = new Gson();
-
-//                        listDetBills = g.fromJson(out, DetailedBill[].class);
-//
-//                        String[] SBillsItem=new String[listDetBills.length];
-//                        for (int i=0;i<listDetBills.length;i++){
-//                            SBillsItem[i]="";
-//                            for(int j=0;j<listDetBills[i].items.length;j++){
-//                                SBillsItem[i]+=listDetBills[i].items[j].name+" "
-//                                        +(listDetBills[i].items[j].price/100)+" "+"rubles"+"\n";
-//                            }
-//                        }
 
 
                         HashMap<String, String> nameAddresses = new HashMap<>();
-//                        String[] SBillsTitle=new String[listDetBills.length];
-
-
-//                        for (int i=0;i<listDetBills.length;i++){
-//                            SBillsTitle[i]="Bill from "+listDetBills[i].dateTime.substring(0,10)+"\n"+SBillsItem[i];
-//                            nameAddresses.put(SBillsTitle[i], "O");
-////                            nameAddresses.put(SBillsTitle[i], SBillsItem[i]);
-//                        }
-
-//                        nameAddresses.put(out, " ");
-
+//                        nameAddresses.put(out," ");
                         ListView resultsListView = (ListView) findViewById(R.id.results_listview);
 
-                        String[] keyVals = out.substring(1,out.length()-1).split(",\"");
-                        for (String keyVal : keyVals) {
-                            nameAddresses.put(keyVal," ");
-//                            String[] parts = keyVal.split("=", 2);
-//                            bill.put(parts[0], parts[1]);
+                        String[] keyVals = out.substring(2,out.length()-1).split(",\"|\":");
+                        for(int i=0;i<keyVals.length;i+=2){
+                            int a=new Integer(keyVals[i+1])/100;
+                            nameAddresses.put(keyVals[i], Integer.toString(a)+" rubles");
                         }
-
-
 
                         List<HashMap<String, String>> listItems = new ArrayList<>();
                         SimpleAdapter adapter = new SimpleAdapter(resultsListView.getContext(), listItems, R.layout.list_item,

@@ -119,9 +119,9 @@ public class GetBills extends AppCompatActivity {
 
 
                         for (int i=0;i<listDetBills.length;i++){
-                            SBillsTitle[i]="Bill from "+listDetBills[i].dateTime.substring(0,10)+"\n"+SBillsItem[i];
-                            nameAddresses.put(SBillsTitle[i], " ");
-//                            nameAddresses.put(SBillsTitle[i], SBillsItem[i]);
+                            SBillsTitle[i]="Bill from "+listDetBills[i].dateTime.substring(0,10)
+                                    +" "+listDetBills[i].dateTime.substring(11,20);
+                            nameAddresses.put(SBillsTitle[i], SBillsItem[i]);
                         }
 
                         ListView resultsListView = (ListView) findViewById(R.id.results_listview);
