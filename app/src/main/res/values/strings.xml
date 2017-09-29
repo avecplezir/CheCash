@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CheCash</string>
+    <string name="ScanQR">Scan a QR code</string>
+    <string name="GetBills">Get Bills</string>
+    <string name="GetRec">Get Recommendations</string>
+    <string name="title_activity_scan_qr">ScanQR</string>
+    <string name="ScanBillResult">Result:</string>
+    <string name="GetSeg">Get a Segmentation</string>
+
+</resources>
